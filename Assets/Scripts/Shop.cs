@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public TurretBlueprint standartTurret;
-    public TurretBlueprint turretLarge;
+    public TurretBlueprint turretBullet;
+    public TurretBlueprint turretRocket;
+    public TurretBlueprint turretLaser;
+
     BuildManager buildManager;
 
     private void Start()
@@ -11,17 +13,20 @@ public class Shop : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    public void SelectStandartTurret()
+    public void SelectTurretBullet()
     {
-        Debug.Log("B");
-        buildManager.SelectTurretToBuild(standartTurret);
+        buildManager.SelectTurretToBuild(turretBullet);
     }
 
 
-    public void SelectTurretLarge()
+    public void SelectTurretRocket()
     {
-        Debug.Log("B");
-        buildManager.SelectTurretToBuild(turretLarge);
+        buildManager.SelectTurretToBuild(turretRocket);
+    }
+
+    public void SelectTurretLaser()
+    {
+        buildManager.SelectTurretToBuild(turretLaser);
     }
 
 }
