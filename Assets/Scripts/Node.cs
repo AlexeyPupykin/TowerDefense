@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
+    public Color notEnoughMoneyColor;
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -29,7 +31,12 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!buildManager.CanBuild)
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (!buildManager.CanBuild)
         {
             return;
         }
@@ -45,7 +52,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
@@ -54,7 +61,25 @@ public class Node : MonoBehaviour
         {
             return;
         }
-        renderer.material.color = hoverColor;
+
+        if (buildManager.HasMoney)
+        {
+            renderer.material.color = hoverColor;
+        }
+        else
+        {
+            renderer.material.color = notEnoughMoneyColor;
+        }
+
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 
     private void OnMouseExit()
