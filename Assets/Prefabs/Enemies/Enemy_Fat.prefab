@@ -112,6 +112,7 @@ MonoBehaviour:
   startSpeed: 7
   speed: 10
   health: 200
+  damage: 3
   worth: 100
   deathEffect: {fileID: 731789727661471686, guid: 88b42ce60903a0e428ae85e7775dac20, type: 3}
 --- !u!114 &862980413693447773

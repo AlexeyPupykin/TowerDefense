@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     void EndPath()
     {
-        PlayerStats.Lives--;
+        PlayerStats.Lives -= enemy.damage;
         Destroy(gameObject);
     }
 }
