@@ -9,7 +9,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform enemyFatPrefab;
 
     public Transform spawnPoint;
-
+    
     public float timeBetweenWaves = 5f;
     public float timeBetweenEnemies = 0.5f;
     private float countdown = 2f;
@@ -20,8 +20,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerStats.Waves < PlayerStats.Rounds && !GameManager.IsContinue)
+            return;
         if(countdown <= 0f)
         {
+            if (GameManager.GameIsWin && !GameManager.IsContinue) return;
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
@@ -30,7 +33,15 @@ public class WaveSpawner : MonoBehaviour
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        waveCounterText.text = string.Format("{0:00.00}", countdown);
+        if(PlayerStats.Waves < PlayerStats.Rounds)
+        {
+            waveCounterText.text = PlayerStats.Rounds.ToString();
+        }
+        else
+        {
+            waveCounterText.text = PlayerStats.Rounds.ToString() + "/" + PlayerStats.Waves.ToString();
+        }
+
     }
 
     IEnumerator SpawnWave()
