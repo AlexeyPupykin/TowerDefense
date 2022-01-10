@@ -11,16 +11,10 @@ public class TurretBlueprint
     public GameObject upgradePrefab;
     public int upgradeCost;
 
-    public 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject placeholderPrefab;
+    
+    public int GetSellAmount()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return cost / 2;
     }
 }
