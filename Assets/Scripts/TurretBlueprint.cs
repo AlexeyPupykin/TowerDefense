@@ -7,6 +7,11 @@ public class TurretBlueprint
 {
     public GameObject prefab;
     public int cost;
+
+    public GameObject upgradePrefab;
+    public int upgradeCost;
+
+    public 
     // Start is called before the first frame update
     void Start()
     {
