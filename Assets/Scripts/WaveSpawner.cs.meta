@@ -3,7 +3,11 @@ guid: 8624f421d81e874498839adc77725a67
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemyPrefab: {fileID: 8900437901455526488, guid: bbfdb7527dbe2674db37283d732807de, type: 3}
+  - enemyFastPrefab: {fileID: 502535059308549439, guid: 1734aac598149704ba6b47a4c28e0ce3, type: 3}
+  - spawnPoint: {instanceID: 0}
+  - waveCounterText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

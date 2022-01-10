@@ -20,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
+        transform.rotation = Quaternion.LookRotation(direction);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
