@@ -20,7 +20,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerStats.Waves < PlayerStats.Rounds && !GameManager.IsContinue)
+        if (PlayerStats.Waves == PlayerStats.Rounds && !GameManager.IsContinue || GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
             return;
         if(countdown <= 0f)
         {
@@ -33,7 +33,7 @@ public class WaveSpawner : MonoBehaviour
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        if(PlayerStats.Waves < PlayerStats.Rounds)
+        if(GameManager.IsContinue)
         {
             waveCounterText.text = PlayerStats.Rounds.ToString();
         }

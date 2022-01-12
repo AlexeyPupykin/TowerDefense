@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -23,11 +21,13 @@ public class GameManager : MonoBehaviour
     {
         if (GameIsOver)
             return;
+        if (GameIsWin && !IsContinue)
+            return;
         if (PlayerStats.Lives <= 0)
         {
             EndGame();
         }
-        if(!IsContinue && !GameIsWin && PlayerStats.Waves < PlayerStats.Rounds)
+        if(!IsContinue && !GameIsWin && PlayerStats.Waves == PlayerStats.Rounds && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             WinGame();
         }
