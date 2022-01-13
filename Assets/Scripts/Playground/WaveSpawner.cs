@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
 
     public float timeBetweenWaves = 5f;
-    public float timeBetweenEnemies = 0.5f;
+    public float timeBetweenEnemies = 7.0f;
     public List<Wave> waves;
     public List<Enemy> enemies;
     public Transform spawnPoint;
@@ -34,9 +34,9 @@ public class WaveSpawner : MonoBehaviour
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
         if(GameManager.IsContinue)
-            waveCounterText.text = PlayerStats.Rounds.ToString();
+            waveCounterText.text = "wave " + PlayerStats.Rounds.ToString();
         else
-            waveCounterText.text = PlayerStats.Rounds.ToString() + "/" + PlayerStats.Waves.ToString();
+            waveCounterText.text = PlayerStats.Rounds.ToString() + "/" + PlayerStats.Waves.ToString() + " waves";
     }
 
     private IEnumerator SpawnWave()
@@ -50,22 +50,26 @@ public class WaveSpawner : MonoBehaviour
 
             for (int i = 0; i < currentCustomWave.enemyNumber; i++)
             {
-                SpawnEnemy(enemies.Find(e => e.type == currentCustomWave.enemyType).prefab);
-                yield return new WaitForSeconds(timeBetweenEnemies);
+                var enemy = enemies.Find(e => e.type == currentCustomWave.enemyType);
+                SpawnEnemy(enemy.prefab);
+                yield return new WaitForSeconds(timeBetweenEnemies / enemy.startSpeed);
             }
         }
         else
         {
             for (int i = 0; i < waveIndex; i++)
             {
-                if (waveIndex % 10 == 0)
-                    SpawnEnemy(enemies.Find(e => e.type == EnemyType.Fat).prefab);
-                else if (waveIndex % 5 == 0)
-                    SpawnEnemy(enemies.Find(e => e.type == EnemyType.Fast).prefab);
-                else
-                    SpawnEnemy(enemies.Find(e => e.type == EnemyType.Standart).prefab);
+                Enemy enemy;
 
-                yield return new WaitForSeconds(timeBetweenEnemies);
+                if (waveIndex % 10 == 0)
+                    enemy = enemies.Find(e => e.type == EnemyType.Fat);
+                else if (waveIndex % 5 == 0)
+                    enemy = enemies.Find(e => e.type == EnemyType.Fast);
+                else
+                    enemy = enemies.Find(e => e.type == EnemyType.Standart);
+
+                SpawnEnemy(enemy.prefab);
+                yield return new WaitForSeconds(timeBetweenEnemies / enemy.startSpeed);
             }
         }        
     }
