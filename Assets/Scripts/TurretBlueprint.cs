@@ -12,6 +12,8 @@ public class TurretBlueprint
     public int upgradeCost;
 
     public GameObject placeholderPrefab;
+
+    public Sprite image;
     
     public int GetSellAmount()
     {

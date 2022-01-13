@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 3982699236065278859}
   - component: {fileID: 3982699236065278858}
   - component: {fileID: 3982699236065278861}
+  - component: {fileID: 3150710769693441191}
   m_Layer: 5
   m_Name: ShopTurretItem
   m_TagString: Untagged
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b2fdcc5b72be0ff4a9f6822ecbe253ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 018c29560093be4469a0d4c108befad2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -203,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: SelectStandartTurret
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -233,6 +234,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3150710769693441191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3982699236065278863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb03f477e0b1e9479f231be3666a9d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costBG: {fileID: 0}
 --- !u!1 &7606861150856375791
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +258,7 @@ GameObject:
   - component: {fileID: 3992988105662799465}
   - component: {fileID: 5793267372645298701}
   - component: {fileID: 4899653778232760422}
+  - component: {fileID: 6798838386083929144}
   m_Layer: 5
   m_Name: CostBG
   m_TagString: Untagged
@@ -309,3 +324,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6798838386083929144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606861150856375791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3890453b4d19aa442b700e565e739713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: {fileID: 2585664500979633153}
