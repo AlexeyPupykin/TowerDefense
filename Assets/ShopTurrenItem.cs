@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopTurrenItem : MonoBehaviour
+public class ShopTurrenItem : Shop
 {
-    public CostBG costBG;
+    public TurretBlueprint turret;
+    public GameObject costBG;
 
-    void UpdateCost(string text)
+    public void CallSelectTurret()
     {
-        costBG.UpdateText(text);
+        base.SelectTurret(turret);
     }
 }

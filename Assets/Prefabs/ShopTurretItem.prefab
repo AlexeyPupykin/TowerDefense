@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 3150710769693441191}
+        m_TargetAssemblyTypeName: ShopTurrenItem, Assembly-CSharp
+        m_MethodName: CallSelectTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -246,7 +246,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb03f477e0b1e9479f231be3666a9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costBG: {fileID: 0}
+  items: []
+  turretBullet:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+    placeholderPrefab: {fileID: 0}
+    image: {fileID: 0}
+  turretRocket:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+    placeholderPrefab: {fileID: 0}
+    image: {fileID: 0}
+  turretLaser:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+    placeholderPrefab: {fileID: 0}
+    image: {fileID: 0}
+  shopTurretItem: {fileID: 0}
+  turret:
+    prefab: {fileID: 7164275883102231384, guid: cd67ad94342050c4aa46dccb557dd9f0, type: 3}
+    cost: 20
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 10
+    placeholderPrefab: {fileID: 4987461223290320261, guid: 271b5e15d7316d1438d56a0f2bb176e8, type: 3}
+    image: {fileID: 21300000, guid: 018c29560093be4469a0d4c108befad2, type: 3}
+  costBG: {fileID: 7606861150856375791}
 --- !u!1 &7606861150856375791
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     public List<TurretBlueprint> items;
-    public TurretBlueprint turretBullet;
-    public TurretBlueprint turretRocket;
-    public TurretBlueprint turretLaser;
+    //public TurretBlueprint turretBullet;
+    //public TurretBlueprint turretRocket;
+    //public TurretBlueprint turretLaser;
     public ShopTurrenItem shopTurretItem;
 
     BuildManager buildManager;
@@ -17,15 +17,12 @@ public class Shop : MonoBehaviour
         buildManager = BuildManager.instance;
         foreach (var item in items)
         {
-            var tur = item;
-            var image = shopTurretItem.GetComponent<Image>();
-            image.sprite = item.image;
-            var button = shopTurretItem.GetComponent<Button>();
-            button.onClick.AddListener(delegate { SelectTurret(tur); });
-            //button.onClick.AddListener(delegate { SwitchButtonHandler(0); });
-            var go = Instantiate(shopTurretItem);
-            go.transform.parent = gameObject.transform;
-            
+            shopTurretItem.turret = item;
+            shopTurretItem.GetComponent<Image>().sprite = item.image;
+            shopTurretItem.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Text>().text = "$" + item.cost;
+
+            var go = Instantiate(shopTurretItem);            
+            go.transform.parent = gameObject.transform; 
         }
     }
 
@@ -34,25 +31,20 @@ public class Shop : MonoBehaviour
         buildManager.SelectTurretToBuild(turret);
     }
 
-    void SwitchButtonHandler(int idx_)
-    {
-        Debug.Log(idx_);
-    }
-
-    public void SelectTurretBullet()
-    {
-        buildManager.SelectTurretToBuild(turretBullet);
-    }
+    //public void SelectTurretBullet()
+    //{
+    //    buildManager.SelectTurretToBuild(turretBullet);
+    //}
 
 
-    public void SelectTurretRocket()
-    {
-        buildManager.SelectTurretToBuild(turretRocket);
-    }
+    //public void SelectTurretRocket()
+    //{
+    //    buildManager.SelectTurretToBuild(turretRocket);
+    //}
 
-    public void SelectTurretLaser()
-    {
-        buildManager.SelectTurretToBuild(turretLaser);
-    }
+    //public void SelectTurretLaser()
+    //{
+    //    buildManager.SelectTurretToBuild(turretLaser);
+    //}
 
 }
