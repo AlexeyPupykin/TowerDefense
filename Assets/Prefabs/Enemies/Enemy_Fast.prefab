@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 92315b0a23dda7342ac8e8f1277d004d, type: 2}
+  - {fileID: 2100000, guid: d28a8f129f865584b88469de08505201, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,12 +109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0382401e2a3f3524482efb8c3be065cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 16
   speed: 10
+  startSpeed: 16
   health: 75
   damage: 2
   worth: 65
+  type: 2
   deathEffect: {fileID: 731789727661471686, guid: 88b42ce60903a0e428ae85e7775dac20, type: 3}
+  prefab: {fileID: 502535059308549439}
 --- !u!114 &1264513477967936335
 MonoBehaviour:
   m_ObjectHideFlags: 0

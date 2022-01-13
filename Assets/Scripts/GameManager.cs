@@ -3,12 +3,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool GameIsOver;
-    public GameObject gameOverUI;
-
+    public static bool IsContinue;
     public static bool GameIsWin;
     public GameObject gameWinUI;
+    public GameObject gameOverUI;
 
-    public static bool IsContinue;
+    public void Continue()
+    {
+        IsContinue = true;
+        gameWinUI.SetActive(false);
+    }
 
     private void Start()
     {
@@ -17,37 +21,30 @@ public class GameManager : MonoBehaviour
         IsContinue = false;
     }
 
-    void Update()
+    private void Update()
     {
         if (GameIsOver)
             return;
+
         if (GameIsWin && !IsContinue)
             return;
+
         if (PlayerStats.Lives <= 0)
-        {
             EndGame();
-        }
+        
         if(!IsContinue && !GameIsWin && PlayerStats.Waves == PlayerStats.Rounds && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-        {
             WinGame();
-        }
     }
 
-    void EndGame()
+    private void EndGame()
     {
         GameIsOver = true;
         gameOverUI.SetActive(true);
     }
 
-    void WinGame()
+    private void WinGame()
     {
         GameIsWin = true;
         gameWinUI.SetActive(true);
-    }
-
-    public void Continue()
-    {
-        IsContinue = true;
-        gameWinUI.SetActive(false);
     }
 }
