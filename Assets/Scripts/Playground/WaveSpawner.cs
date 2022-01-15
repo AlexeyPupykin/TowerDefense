@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
 
     public float timeBetweenWaves = 5f;
-    public float timeBetweenEnemies = 7.0f;
+    public float ratioBetweenEnemies = 7.0f;
     public List<Wave> waves;
     public List<Enemy> enemies;
     public Transform spawnPoint;
@@ -52,7 +52,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 var enemy = enemies.Find(e => e.type == currentCustomWave.enemyType);
                 SpawnEnemy(enemy.prefab);
-                yield return new WaitForSeconds(timeBetweenEnemies / enemy.startSpeed);
+                yield return new WaitForSeconds(ratioBetweenEnemies / enemy.startSpeed);
             }
         }
         else
@@ -69,7 +69,7 @@ public class WaveSpawner : MonoBehaviour
                     enemy = enemies.Find(e => e.type == EnemyType.Standart);
 
                 SpawnEnemy(enemy.prefab);
-                yield return new WaitForSeconds(timeBetweenEnemies / enemy.startSpeed);
+                yield return new WaitForSeconds(ratioBetweenEnemies / enemy.startSpeed);
             }
         }        
     }

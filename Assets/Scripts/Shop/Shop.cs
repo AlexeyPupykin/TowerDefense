@@ -6,7 +6,7 @@ public class Shop : MonoBehaviour
 {
     public List<TurretBlueprint> items;
     public ShopTurrenItem shopTurretItem;
-
+    
     BuildManager buildManager;    
 
     public void SelectTurret(TurretBlueprint turret)
@@ -24,7 +24,7 @@ public class Shop : MonoBehaviour
             shopTurretItem.GetComponent<Image>().sprite = item.image;
             shopTurretItem.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Text>().text = "$" + item.cost;
             var go = Instantiate(shopTurretItem);
-            go.transform.parent = gameObject.transform;
+            go.transform.SetParent(gameObject.transform);
         }
     }
 }

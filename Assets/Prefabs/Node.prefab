@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0133493cc8f744a448eace410c1d3c6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +108,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bb5aa787cfa84469a2488f85db68da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUpgraded: 0
   hoverColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
   notEnoughMoneyColor: {r: 0.8113208, g: 0.3329477, b: 0.3329477, a: 0}
   positionOffset: {x: 0, y: 0.5, z: 0}
+  turretBlueprint:
+    cost: 0
+    upgradeCost: 0
+    prefab: {fileID: 0}
+    upgradePrefab: {fileID: 0}
+    placeholderPrefab: {fileID: 0}
+    image: {fileID: 0}
   turret: {fileID: 0}
+  turretPlaceholder: {fileID: 0}
