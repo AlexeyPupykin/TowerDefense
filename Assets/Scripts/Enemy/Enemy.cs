@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float health = 100;
     public int damage = 1;
     public int worth = 50;
-    public EnemyType type;
+    //public EnemyType type;
     public GameObject deathEffect;
     public Transform prefab;
        
@@ -34,14 +34,15 @@ public class Enemy : MonoBehaviour
     {
         PlayerStats.Money += worth;
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);        
+        Destroy(effect, 5f);
         Destroy(gameObject);
     }
 }
 
-public enum EnemyType
-{
-    Standart = 1,
-    Fast = 2,
-    Fat = 3
-}
+//public enum EnemyType
+//{
+//    Standart = 1,
+//    Fast = 2,
+//    Fat = 3,
+//    Chicken = 4
+//}

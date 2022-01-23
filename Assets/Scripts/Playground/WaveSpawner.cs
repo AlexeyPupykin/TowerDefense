@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class WaveSpawner : MonoBehaviour
 
             for (int i = 0; i < currentCustomWave.enemyNumber; i++)
             {
-                var enemy = enemies.Find(e => e.type == currentCustomWave.enemyType);
+                var enemy = enemies.Find(e => e == currentCustomWave.enemy);
                 SpawnEnemy(enemy.prefab);
                 yield return new WaitForSeconds(ratioBetweenEnemies / enemy.startSpeed);
             }
@@ -60,13 +61,15 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < waveIndex; i++)
             {
                 Enemy enemy;
+                var rnd = new System.Random();
+                enemy = enemies[rnd.Next(enemies.Count)];
 
-                if (waveIndex % 10 == 0)
-                    enemy = enemies.Find(e => e.type == EnemyType.Fat);
-                else if (waveIndex % 5 == 0)
-                    enemy = enemies.Find(e => e.type == EnemyType.Fast);
-                else
-                    enemy = enemies.Find(e => e.type == EnemyType.Standart);
+                //if (waveIndex % 10 == 0)
+                //    enemy = enemies.Find(e => e.type == EnemyType.Fat);
+                //else if (waveIndex % 5 == 0)
+                //    enemy = enemies.Find(e => e.type == EnemyType.Fast);
+                //else
+                //    enemy = enemies.Find(e => e.type == EnemyType.Standart);
 
                 SpawnEnemy(enemy.prefab);
                 yield return new WaitForSeconds(ratioBetweenEnemies / enemy.startSpeed);
@@ -83,5 +86,5 @@ public class WaveSpawner : MonoBehaviour
 [System.Serializable]
 public class Wave {
     public int enemyNumber;
-    public EnemyType enemyType;
+    public Enemy enemy;
 }
